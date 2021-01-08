@@ -1,0 +1,29 @@
+<app-toolbar [title]=" 'Login' "></app-toolbar>
+
+<ion-content class="ion-padding">
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+      <ion-note *ngIf="email.errors" color="danger">An Email is required</ion-note>
+    </div>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input type="password" formControlName="pswd"></ion-input>
+    <div *ngIf="pswd.invalid && (pswd.dirty || pswd.touched)">
+      <ion-note *ngIf="pswd.errors" color="danger">A Password is required</ion-note>
+    </div>
+  </ion-item>
+  
+  
+    <ion-button [disabled]="!loginForm.valid" type="submit">
+      <ion-icon name="checkmark"></ion-icon>
+        Login
+    </ion-button>
+  
+</form>
+</ion-content>

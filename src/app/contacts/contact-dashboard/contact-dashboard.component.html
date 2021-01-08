@@ -1,0 +1,11 @@
+<ion-title>
+  {{title}}
+</ion-title>
+
+<ion-list *ngFor="let contact of contacts">
+  <ion-item>
+    <ion-label>{{contact.name}}</ion-label>
+    <ion-button *ngIf=" contact.addedToContact=== false" fill="clear" (click)="addContact(contact)"><ion-icon  name="checkbox-outline"></ion-icon></ion-button>
+    <ion-button fill="claer" (click)="deleteContact(contact)"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
+  </ion-item>
+</ion-list>

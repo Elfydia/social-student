@@ -1,0 +1,47 @@
+<app-toolbar [title]=" 'Registration' "></app-toolbar>
+
+<ion-content class="ion-padding">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input formControlName="email"></ion-input>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+      <ion-note *ngIf="email.errors" color="danger">An Email is required</ion-note>
+    </div>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input type="password" formControlName="pswd"></ion-input>
+    <div *ngIf="pswd.invalid && (pswd.dirty || pswd.touched)">
+      <ion-note *ngIf="pswd.errors" color="danger">A Password is required</ion-note>
+    </div>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label position="stacked">Verify Password</ion-label>
+    <ion-input type="password" formControlName="checkPswd"></ion-input>
+    <div *ngIf="checkPswd.invalid && (checkPswd.dirty || checkPswd.touched)">
+      <ion-note *ngIf="checkPswd.errors" color="danger">A Password is required</ion-note>
+    </div>
+  </ion-item>
+  <div *ngIf="!registerForm.errors?.passwordValid && (registerForm.touched || registerForm.dirty)" >
+    <ion-note color="danger">Passwords are different.</ion-note>
+  </div>
+  <br>
+  <ion-item>
+    <ion-label position="stacked">Username</ion-label>
+    <ion-input type="text" formControlName="username"></ion-input>
+    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+      <ion-note *ngIf="username.errors" color="danger">A Username is required</ion-note>
+    </div>
+  </ion-item>
+  <br>
+  
+    <ion-button [disabled]="!registerForm.valid" type="submit">
+      <ion-icon name="checkmark"></ion-icon>
+        Register
+    </ion-button>
+  
+</form>
+</ion-content>
