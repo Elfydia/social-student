@@ -9,6 +9,11 @@ import { AuthorizationsComponent } from './authorizations.component';
 import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { RepeatedPasswordValidator } from './shared/validators/repeated-password.validator';
+import { AuthorizationsErrorsInterceptor } from './shared/interceptors/authorizations-errors.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
+
 
 
 @NgModule({
@@ -18,12 +23,17 @@ import { RepeatedPasswordValidator } from './shared/validators/repeated-password
     LoginComponent,
     RegisterComponent,
     ToolbarComponent,
-    RepeatedPasswordValidator
+    RepeatedPasswordValidator,
+
   ],
   imports: [
     CommonModule,
-    AuthorizationsRoutingModule,
-    SharedModule
+    SharedModule,
+    AuthorizationsRoutingModule
+    
+  ],
+  providers:[
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationsErrorsInterceptor, multi: true }
   ]
 })
 export class AuthorizationsModule { }

@@ -7,6 +7,7 @@ import { ContactDiscussionComponent } from './contact-discussion/contact-discuss
 import { ContactDashboardComponent } from './contact-dashboard/contact-dashboard.component';
 import { ContactsComponent } from './contacts.component';
 import { SharedModule } from '../shared/shared.module';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 
 @NgModule({
@@ -14,7 +15,10 @@ import { SharedModule } from '../shared/shared.module';
     ContactsComponent,
     ContactSearchComponent,
     ContactDiscussionComponent,
-    ContactDashboardComponent],
+    ContactDashboardComponent, 
+    NavbarComponent
+  ],
+   
   imports: [
     CommonModule,
     ContactsRoutingModule,

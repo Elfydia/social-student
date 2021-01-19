@@ -10,11 +10,12 @@ import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-nativ
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), SharedModule, AppRoutingModule ],
   providers: [
     StatusBar,
     SplashScreen,
