@@ -28,6 +28,6 @@ npm-debug.log*
 /node_modules
 /platforms
 /plugins
-/www
 
-/environments/environment.prod.ts
+
+/src/environments/environment.prod.ts
